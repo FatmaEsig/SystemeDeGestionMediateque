@@ -5,18 +5,11 @@ Systeme de gestion de Mediateque
 */
 
 class MediaFabrique{
-	
-	//attributs
-	//listes
-	
-	
-	// constructeur qui renvoie les objets video et livre
-	
-	
+
 	// methodes
-	
-	
-	
+
+	public void creerMedia() {}
+
 	// getters et setters
 	
 	

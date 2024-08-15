@@ -5,18 +5,29 @@ Systeme de gestion de Mediateque
 */
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.PriorityQueue;
 
 class Catalogue{
-	
-	HashMap<String,Media> media;  // soit ID, soit titre
-	
+
+	ArrayList<Media> listeMedia;
+	PriorityQueue<Media> trierMedia;
+
+	//HashMap<String,Media> media;  // soit ID, soit titre
 	// arbre pour filtrer le media? 
 	
 	
 	// constructeur
-	
+
+	public Catalogue(ArrayList<Media> listeMedia) {
+		this.listeMedia = listeMedia;
+	}
+
+
 	// methodes
+
+
 	
 	
 	// getters et setters
