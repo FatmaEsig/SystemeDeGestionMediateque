@@ -4,7 +4,7 @@ Systeme de gestion de Mediateque
 2024 - Rattrapage
 */
 
-class MediaFabrique extends Fabrique{
+class MediaFabrique{
 	
 	//attributs
 	//listes
