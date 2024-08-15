@@ -1,26 +1,19 @@
-/*
+package SourceDonnee;/*
 Auteur: Fatma Aydin
 Systeme de gestion de Mediateque
 2024 - Rattrapage
 */
 
-class SourceBdd implements SourceDonneeStrategie{
+interface SourceDonneeStrategie{
 	
-	//bdd;
-	
+	//Media[] mediaSource;
 	
 	// constructeur
 	
-	
 	// methodes
 	
-	
-	// getters et setters
-	
+	// getter et setter
 	
 	// toString
-	
-	
-	
 	
 }
