@@ -12,15 +12,17 @@ class Media{
 	String auteur;
 	LocalDate dateDePublication;
 	Double prix;
+	String type;  // pour differencier si c'est une video ou un livre
 	
 	//Constructeur
 
-	public Media(int id, String titre, String auteur, LocalDate dateDePublication, Double prix) {
+	public Media(int id, String titre, String auteur, LocalDate dateDePublication, Double prix, String type) {
 		this.id = id;
 		this.titre = titre;
 		this.auteur = auteur;
 		this.dateDePublication = dateDePublication;
 		this.prix = prix;
+		this.type = type;
 	}
 
 
@@ -71,8 +73,14 @@ class Media{
 		this.prix = prix;
 	}
 
+	public String getType() {
+		return type;
+	}
 
-	// ToString
+	public void setType(String type) {
+		this.type = type;
+	}
+// ToString
 
 
 	@Override
@@ -83,6 +91,7 @@ class Media{
 				", auteur='" + auteur + '\'' +
 				", dateDePublication=" + dateDePublication +
 				", prix=" + prix +
+				",type=" + type +
 				'}';
 	}
 }

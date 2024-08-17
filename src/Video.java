@@ -19,8 +19,8 @@ class Video extends Media{
 	
 	// constructeur avec héritage des attribut parent
 
-	public Video(int id, String titre, String auteur, LocalDate dateDePublication, Double prix, double duree, int format, int resolution, String url, int nombreDeVues, String description) {
-		super(id, titre, auteur, dateDePublication, prix);
+	public Video(int id, String titre, String auteur, LocalDate dateDePublication, Double prix, String type, double duree, int format, int resolution, String url, int nombreDeVues, String description) {
+		super(id, titre, auteur, dateDePublication, prix, type);
 		this.duree = duree;
 		this.format = format;
 		this.resolution = resolution;
@@ -33,7 +33,56 @@ class Video extends Media{
 	// methodes
 	
 	// getters et setters
-	
+
+	public double getDuree() {
+		return duree;
+	}
+
+	public void setDuree(double duree) {
+		this.duree = duree;
+	}
+
+	public int getFormat() {
+		return format;
+	}
+
+	public void setFormat(int format) {
+		this.format = format;
+	}
+
+	public int getResolution() {
+		return resolution;
+	}
+
+	public void setResolution(int resolution) {
+		this.resolution = resolution;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public int getNombreDeVues() {
+		return nombreDeVues;
+	}
+
+	public void setNombreDeVues(int nombreDeVues) {
+		this.nombreDeVues = nombreDeVues;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
 	// toString
 
 	@Override

@@ -15,8 +15,8 @@ class Livre extends Media{
 	
 	// Constructeur (avec attributs Parent)
 
-	public Livre(int id, String titre, String auteur, LocalDate dateDePublication, Double prix, int ISBN, String genre, String resume) {
-		super(id, titre, auteur, dateDePublication, prix);
+	public Livre(int id, String titre, String auteur, LocalDate dateDePublication, Double prix, String type, int ISBN, String genre, String resume) {
+		super(id, titre, auteur, dateDePublication, prix, type);
 		this.ISBN = ISBN;
 		this.genre = genre;
 		this.resume = resume;
@@ -29,10 +29,32 @@ class Livre extends Media{
 	
 	
 	// Getter et Setter
-	
-	
-	
-	
+
+	public int getISBN() {
+		return ISBN;
+	}
+
+	public void setISBN(int ISBN) {
+		this.ISBN = ISBN;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public String getResume() {
+		return resume;
+	}
+
+	public void setResume(String resume) {
+		this.resume = resume;
+	}
+
+
 	// ToString
 
 

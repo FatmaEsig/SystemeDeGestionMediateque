@@ -1,0 +1,33 @@
+﻿id;titre;auteur;dateDePublication;prix;type;isbn;genre;resume;duree;format;resolution;url;nombreDeVues;description
+1;Pride and Prejudice;Jane Austen;1813;11;livre;978-3-16-148410-0;Romance;Une histoire d’amour et de préjugés dans l’Angleterre du début du XIXe siècle, centrée sur Elizabeth Bennet et Mr. Darcy.;;;;;;
+2;1984;George Orwell;1949;20;livre;978-0-452-28423-4; Dystopie;Un futur totalitaire où Big Brother surveille chaque mouvement, et où la pensée indépendante est un crime.;;;;;;
+3;Crime and Punishment;Fyodor Dostoevsky;1866;12;livre;978-0-14-044913-6;Philosophie; L’histoire de Raskolnikov, un étudiant pauvre qui commet un meurtre et lutte avec sa conscience.;;;;;;
+4;Hamlet;William Shakespeare;1603;34;livre;978-0-7434-7712-3;Tragédie;Le prince Hamlet cherche à venger la mort de son père, le roi du Danemark, dans cette tragédie classique.;;;;;;
+5;One Hundred Years of Solitude;Gabriel García Márquez;1967;29;livre;978-0-06-088328-7;Fiction;La saga de la famille Buendía dans le village fictif de Macondo, explorant les thèmes de la solitude et du destin.;;;;;;
+6;Anna Karenina;Leo Tolstoy;1877;24;livre;978-0-14-303500-8;Fiction;Une histoire d’amour tragique entre Anna Karenina et le comte Vronsky, et les conséquences de leur liaison.;;;;;;
+7;The Odyssey;Homer;1980;16;livre;978-0-14-026886-7;Mythologie;Les aventures d’Ulysse alors qu’il tente de retourner chez lui après la guerre de Troie.;;;;;;
+8;The Stranger;Albert Camus;1942;31;livre;978-0-679-72020-1;Philosophie;Meursault, un homme indifférent, commet un meurtre et fait face à l’absurdité de la vie et de la justice.;;;;;;
+9;The Brothers Karamazov;Fyodor Dostoevsky;1880;18;livre;978-0-375-75942-7;Fiction;Une exploration profonde des questions de foi, de doute et de la nature humaine à travers l’histoire de la famille Karamazov.;;;;;;
+10;Lolita;Vladimir Nabokov;1955;11;livre;978-0-679-72316-5;Controversé;L’histoire troublante de la relation entre Humbert Humbert et la jeune Dolores Haze, surnommée Lolita.;;;;;;
+11;Great Expectations;Charles Dickens;1861;28;livre;978-0-14-143956-3;Classique;La vie de Pip, un orphelin, et ses aspirations à devenir un gentleman grâce à un mystérieux bienfaiteur.;;;;;;
+12;The Old Man and the Sea;Ernest Hemingway;1952;16;livre;978-0-684-80122-3; Aventure;Le combat épique d’un vieux pêcheur cubain contre un énorme marlin dans les eaux du Gulf Stream.;;;;;;
+13;To Kill a Mockingbird;Harper Lee;1960;24;livre;978-0-06-112008-4;Drame;Les défis de la justice et du racisme dans le Sud des États-Unis à travers les yeux de Scout Finch, une jeune fille.;;;;;;
+14;The Great Gatsby;F. Scott Fitzgerald;1925;10;livre;978-0-7432-7356-5;Drame;La vie mystérieuse et tragique de Jay Gatsby et son amour obsessionnel pour Daisy Buchanan dans les années 1920.;;;;;;
+15;Moby-Dick;Herman Melville;1851;32;livre;978-0-14-243724-7;Aventure;La quête obsessionnelle du capitaine Ahab pour capturer la baleine blanche Moby Dick.;;;;;;
+16;War and Peace;Leo Tolstoy;1869;15;livre;978-0-14-303999-0;Historique;Une épopée sur la vie de plusieurs familles aristocratiques russes pendant les guerres napoléoniennes.;;;;;;
+17;The Catcher in the Rye;J.D. Salinger;1951;31;livre;978-0-316-76948-8;Drame;Les aventures et réflexions de Holden Caulfield, un adolescent rebelle, à New York après avoir été expulsé de son école.;;;;;;
+18;Brave New World;Aldous Huxley;1932;23;livre;978-0-06-085052-4;Dystopie;Une vision dystopique d’un futur où la société est contrôlée par la technologie et la manipulation génétique.;;;;;;
+19;The Divine Comedy;Dante Alighieri;1320;12;livre;978-0-14-243722-3;Épopée;Le voyage de Dante à travers l’Enfer, le Purgatoire et le Paradis, guidé par le poète Virgile et Béatrice.;;;;;;
+20;The Hobbit;J.R.R. Tolkien;1937;14;livre;978-0-618-00221-3;Aventure;Les aventures de Bilbo Baggins, un hobbit, qui se lance dans une quête pour récupérer un trésor gardé par le dragon Smaug.;;;;;;
+21;The Great Adventure;John Smith;2020;27;video;;;;120 minutes;MP4;1080p;example.com/great-adventure;1200;Une aventure épique à travers des paysages magnifiques et des défis inattendus.
+22;Cooking with Passion;Emma Brown;2019;27;video;;;;45 minutes;MKV;720p;example.com/cooking-passion;850;Découvrez des recettes délicieuses et faciles à préparer avec Emma.
+23;The Science of Everything;Dr. Alan Green;2021;22;video;;;;60 minutes;AVI;1080p;example.com/science-everything;2300;Une exploration fascinante des principes scientifiques qui régissent notre monde.
+24;Yoga for Beginners;Sarah Lee;2018;10;video;;;;30 minutes;MP4;720p;example.com/yoga-beginners;1500;Une introduction douce et accessible au yoga pour les débutants.
+25;History Uncovered;Michael Johnson;2022;12;video;;;;90 minutes;MOV;1080p;example.com/history-uncovered;1800;Un voyage à travers les événements historiques les plus marquants.
+26;Wildlife Wonders;David Attenborough;2020;17;video;;;;50 minutes;MP4;4K;example.com/wildlife-wonders;320;Une immersion dans la beauté et la diversité de la faune sauvage.
+27;The Art of Painting;Lisa White;2019;16;video;;;;40 minutes;MKV;1080p;example.com/art-painting;950;Apprenez les techniques de peinture avec l’artiste Lisa White.
+28;Fitness Challenge;Mark Davis;2021;33;video;;;;35 minutes;MP4;720p;example.com/fitness-challenge;1100;Un programme de fitness intense pour vous mettre en forme rapidement.
+29;Exploring Space;Dr. Jane Foster;2020;28;video;;;;70 minutes;AVI;1080p;example.com/exploring-space;2500;Une exploration des mystères de l’univers et des découvertes spatiales.
+30;Music Legends;Tom Harris;2018;16;video;;;;55 minutes;MOV;720p;example.com/music-legends;1700;Un hommage aux plus grandes légendes de la musique à travers les âges.
+31;Travel Diaries;Anna Wilson;2021;23;video;;;;65 minutes;MP4;1080p;example.com/travel-diaries;1900;Découvrez des destinations exotiques et des cultures fascinantes avec Anna.
+32;Tech Innovations;Robert King;2020;29;video;;;;50 minutes;MKV;1080p;example.com/tech-innovations;2100;Un aperçu des dernières innovations technologiques qui changent le monde.
