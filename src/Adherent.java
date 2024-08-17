@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 class Adherent{
 	int id;
+	String prenom;
 	String nom;
 	String adresse;
 	int numTel;
