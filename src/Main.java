@@ -1,3 +1,7 @@
+import dao.BddSQL;
+
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println(" ");
@@ -44,6 +48,16 @@ public class Main {
 
 
         */
+        // test pour récuperer donnée adherents
+        BddSQL bdd = new BddSQL();
+        List<String[]> listeAdherent = bdd.loadAdherents();
+        for (String[] adherent : listeAdherent) {
+            for (String info : adherent) {
+                System.out.println(info + " ");
+            }
+            System.out.println();
+        }
+
 
 
 

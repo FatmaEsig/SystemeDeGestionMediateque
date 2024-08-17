@@ -9,8 +9,8 @@ public class BddSQL {
 
     public static void loadBDD()
     {
-        loadLivres();
-        loadAdherents();
+        // loadLivres();
+        //loadAdherents();
     }
 
     /**
@@ -18,7 +18,7 @@ public class BddSQL {
      *
      * @return Liste de chaînes de caractères avec le contenu des différentes colonnes
      */
-    public static void loadLivres(){
+    public List<String[]> loadLivres(){
 
         // Données pour les livres
         mediaList.add(new String[]{"1", "Pride and Prejudice", "Jane Austen", "1813", "35", "livre", "978-3-16-148410-0", "Romance", "Une histoire d’amour et de préjugés dans l’Angleterre du début du XIXe siècle, centrée sur Elizabeth Bennet et Mr. Darcy.", "", "", "", "", "", ""});
@@ -59,7 +59,7 @@ public class BddSQL {
         mediaList.add(new String[]{"33", "Cooking Masterclass", "Gordon Ramsey", "2019", "32", "video", "", "", "", "60 minutes", "MP4", "720p", "example.com/cooking-masterclass", "2000", "Apprenez les techniques de cuisine avancées avec le chef Gordon Ramsey."});
         mediaList.add(new String[]{"34", "Mindfulness Meditation", "Emily Parker", "2018", "19", "video", "", "", "", "25 minutes", "AVI", "1080p", "example.com/mindfulness-meditation", "900", "Une séance de méditation guidée pour réduire le stress et augmenter la concentration."});
         mediaList.add(new String[]{"35", "Documentary Series", "Various", "2022", "14", "video", "", "", "", "120 minutes", "MP4", "4K", "example.com/documentary-series", "3500", "Une série documentaire sur des sujets divers allant de la science à la culture."});
-        //return mediaList;
+        return mediaList;
     }
 
     /**
@@ -67,7 +67,7 @@ public class BddSQL {
      *
      * @return Liste de chaînes de caractères avec le contenu des différentes colonnes
      */
-    public static void loadAdherents() {
+    public List<String[]> loadAdherents() {
 
         adherentList.add(new String[]{"1", "Althea", "Haydon", "844 3rd Parkway", "9399913150", "14/01/1994"});
         adherentList.add(new String[]{"2", "Joshuah", "Stroud", "38 Ilene Point", "5735153680", "19/01/1971"});
@@ -94,6 +94,8 @@ public class BddSQL {
         adherentList.add(new String[]{"23", "Isabelita", "Cunnane", "92 Manitowish Street", "1323967976", "18/04/2008"});
         adherentList.add(new String[]{"24", "Matthaeus", "Dabourne", "95 Darwin Court", "4595101313", "24/05/1985"});
         adherentList.add(new String[]{"25", "Arlene", "Readwin", "46 Chive Pass", "3985461610", "01/09/2009"});
-        //return adherentList;
+        return adherentList;
     }
+
+
 }
