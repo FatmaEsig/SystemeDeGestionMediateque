@@ -4,16 +4,14 @@ Systeme de gestion de Mediateque
 2024 - Rattrapage
 */
 
-interface SourceDonneeStrategie{
+
+import java.util.List;
+
+public interface SourceDonneeStrategie{
 	
-	//Media[] mediaSource;
+	List<String[]> loadMedia();
+    List<String[]> loadAdherents();
 	
-	// constructeur
-	
-	// methodes
-	
-	// getter et setter
-	
-	// toString
+
 	
 }

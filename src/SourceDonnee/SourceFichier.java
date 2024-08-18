@@ -4,7 +4,9 @@ Systeme de gestion de Mediateque
 2024 - Rattrapage
 */
 
-class SourceFichier implements SourceDonneeStrategie{
+import java.util.List;
+
+public class SourceFichier implements SourceDonneeStrategie{
 	
 	String lienFichier;
 	
@@ -26,8 +28,14 @@ class SourceFichier implements SourceDonneeStrategie{
 	
 	
 	// methodes
-	
-	
+
+	public List<String[]> loadMedia(){
+		return null;
+	};
+	public List<String[]> loadAdherents(){
+
+		return null;
+	};
 	// getters et setters
 	
 	

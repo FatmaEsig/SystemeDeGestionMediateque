@@ -1,3 +1,5 @@
+import SourceDonnee.SourceBdd;
+import SourceDonnee.SourceDonneeStrategie;
 import dao.BddSQL;
 
 import java.util.List;
@@ -49,8 +51,8 @@ public class Main {
 
         */
         // test pour récuperer donnée adherents
-        BddSQL bdd = new BddSQL();
-        List<String[]> listeAdherent = bdd.loadAdherents();
+        SourceDonneeStrategie sourceBdd = new SourceBdd();
+        List<String[]> listeAdherent = sourceBdd.loadAdherents();
         for (String[] adherent : listeAdherent) {
             for (String info : adherent) {
                 System.out.println(info + " ");

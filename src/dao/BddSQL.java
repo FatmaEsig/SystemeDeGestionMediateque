@@ -1,9 +1,11 @@
 package dao;
 
+// essaie - Je sais que ce fichier est redondant
 import java.util.ArrayList;
 import java.util.List;
 
 public class BddSQL {
+    /*
     public static List<String[]> mediaList = new ArrayList<>();
     public static List<String[]> adherentList = new ArrayList<>();
 
@@ -18,6 +20,8 @@ public class BddSQL {
      *
      * @return Liste de chaînes de caractères avec le contenu des différentes colonnes
      */
+
+    /*
     public List<String[]> loadLivres(){
 
         // Données pour les livres
@@ -61,12 +65,14 @@ public class BddSQL {
         mediaList.add(new String[]{"35", "Documentary Series", "Various", "2022", "14", "video", "", "", "", "120 minutes", "MP4", "4K", "example.com/documentary-series", "3500", "Une série documentaire sur des sujets divers allant de la science à la culture."});
         return mediaList;
     }
+*/
 
     /**
      * Simule l'accès à une liste d'adhérents
      *
      * @return Liste de chaînes de caractères avec le contenu des différentes colonnes
      */
+    /*
     public List<String[]> loadAdherents() {
 
         adherentList.add(new String[]{"1", "Althea", "Haydon", "844 3rd Parkway", "9399913150", "14/01/1994"});
@@ -96,6 +102,7 @@ public class BddSQL {
         adherentList.add(new String[]{"25", "Arlene", "Readwin", "46 Chive Pass", "3985461610", "01/09/2009"});
         return adherentList;
     }
+    */
 
 
 }
