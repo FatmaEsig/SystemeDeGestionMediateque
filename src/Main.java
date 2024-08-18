@@ -117,6 +117,20 @@ public class Main {
             System.out.println();
         }
 */
+        System.out.println();
+        System.out.println(" ========================  ");
+        System.out.println();
+
+        List<String[]> listeAdherents = sourceFichier.loadAdherents();
+        if(listeAdherents != null){
+            System.out.println("Liste des Adhérents : ");
+            for (String[] adherent : listeAdherents) {
+                for (String champ : adherent) {
+                    System.out.println(champ + " ");
+                }
+                System.out.println();
+            }
+        }
 
 
 	// Fabrique du Media à appeler
