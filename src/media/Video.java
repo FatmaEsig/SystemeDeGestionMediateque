@@ -1,12 +1,10 @@
-/*
+package media;/*
 Auteur: Fatma Aydin
 Systeme de gestion de Mediateque
 2024 - Rattrapage
 */
 
-import java.time.LocalDate;
-
-class Video extends Media{
+public class Video extends Media{
 	
 	String duree;
 	String format;
@@ -87,7 +85,7 @@ class Video extends Media{
 
 	@Override
 	public String toString() {
-		return "Video{" +
+		return "media.Video{" +
 				"duree=" + duree +
 				", format=" + format +
 				", resolution=" + resolution +

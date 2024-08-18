@@ -1,7 +1,7 @@
-import SourceDonnee.SourceBdd;
-import SourceDonnee.SourceDonneeStrategie;
-import SourceDonnee.SourceFichier;
-import dao.BddSQL;
+import media.Livre;
+import media.Video;
+import source_donnee.SourceDonneeStrategie;
+import source_donnee.SourceFichier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -137,7 +137,7 @@ public class Main {
         System.out.println("===========================================");
         System.out.println("");
     // -----------------------------------------------------------------------
-	    // Fabrique du Media à instancier
+	    // Fabrique du media.Media à instancier
 		// Strategie à utiliser dans Fabrique
         MediaFabrique mediaFabrique = new MediaFabrique(); // doit avoir 2 types d'objets
 
@@ -175,6 +175,13 @@ public class Main {
         for (Video video : videos) {
             System.out.println(video.getTitre() + " par " + video.getAuteur());
         }
+
+        System.out.println("");
+        System.out.println("===========================================");
+        System.out.println("");
+        // ----------------------------------------------
+        // Catalogue
+
 
     }
 }

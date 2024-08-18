@@ -1,4 +1,4 @@
-package SourceDonnee;/*
+package source_donnee;/*
 Auteur: Fatma Aydin
 Systeme de gestion de Mediateque
 2024 - Rattrapage

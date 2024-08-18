@@ -1,13 +1,10 @@
-package SourceDonnee;/*
+package source_donnee;/*
 Auteur: Fatma Aydin
 Systeme de gestion de Mediateque
 2024 - Rattrapage
 */
 
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 

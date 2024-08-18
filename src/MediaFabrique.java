@@ -4,15 +4,15 @@ Systeme de gestion de Mediateque
 2024 - Rattrapage
 */
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import media.Livre;
+import media.Video;
 
 class MediaFabrique{
 
 
 	// methodes
 
-	// pour créer l'objet Livre
+	// pour créer l'objet media.Livre
 	static Livre creerLivre(String[] data){
 		try {
 			// tout les attributs
@@ -28,7 +28,7 @@ class MediaFabrique{
 
 			return new Livre(id, titre, auteur, dateDePublication, prix, type, ISBN, genre, resume);
 		}catch (Exception e){
-			System.out.println("Erreur lors de la création du Livre : " + e.getMessage());
+			System.out.println("Erreur lors de la création du media.Livre : " + e.getMessage());
 			return null;
 		}
 	}

@@ -4,6 +4,8 @@ Systeme de gestion de Mediateque
 2024 - Rattrapage
 */
 
+import media.Media;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.PriorityQueue;

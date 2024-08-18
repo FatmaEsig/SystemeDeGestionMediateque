@@ -1,4 +1,4 @@
-/*
+package media;/*
 Auteur: Fatma Aydin
 Systeme de gestion de Mediateque
 2024 - Rattrapage
@@ -6,7 +6,7 @@ Systeme de gestion de Mediateque
 
 import java.time.LocalDate;
 
-class Media{
+public class Media{
 	int id;
 	String titre;
 	String auteur;
@@ -85,7 +85,7 @@ class Media{
 
 	@Override
 	public String toString() {
-		return "Media{" +
+		return "media.Media{" +
 				"id=" + id +
 				", titre='" + titre + '\'' +
 				", auteur='" + auteur + '\'' +
