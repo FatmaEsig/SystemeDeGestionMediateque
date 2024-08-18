@@ -1,10 +1,14 @@
 import media.Livre;
+import media.Media;
 import media.Video;
+import recherche_catalogue.RechercheParTitre;
+import recherche_catalogue.RechercheStrategie;
 import source_donnee.SourceDonneeStrategie;
 import source_donnee.SourceFichier;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class Main {
     public static void main(String[] args) {
@@ -181,6 +185,29 @@ public class Main {
         System.out.println("");
         // ----------------------------------------------
         // Catalogue
+
+        Catalogue catalogue = new Catalogue();
+
+        // ajout des medias (media (tout), livre, video) au catalogue
+
+        for (Livre livre : livres) {
+            catalogue.ajouterLivre(livre);
+        }
+
+        for (Video video : videos) {
+            catalogue.ajouterVideo(video);
+        }
+
+        // application du trie
+        RechercheStrategie rechercheTitre = new RechercheParTitre();
+        PriorityQueue<Livre> livresTrieParTitre = catalogue.rechercheLivre(rechercheTitre);
+
+        // affichage des livres par titre
+        System.out.println("Livres filtré par titre :");
+        while(!livresTrieParTitre.isEmpty()){
+            Livre livre = livresTrieParTitre.poll();  // recupere l'element avec la plus haute priorité
+            System.out.println(livre.getTitre());
+        }
 
 
     }

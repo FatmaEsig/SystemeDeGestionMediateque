@@ -10,13 +10,6 @@ import java.util.PriorityQueue;
 
 public class RechercheParTitre implements RechercheStrategie{
 
-    private String titre;
-
-    // constructeur
-
-    public RechercheParTitre(String titre) {
-        this.titre = titre;
-    }
 
     @Override
     public PriorityQueue<Media> rechercherMedia(List<Media> medias) {
@@ -30,15 +23,23 @@ public class RechercheParTitre implements RechercheStrategie{
 
     @Override
     public PriorityQueue<Livre> rechercherLivre(List<Livre> livres) {
-        return null;
+        // comparator
+        Comparator<Livre> comparator = Comparator.comparing(Livre::getTitre);
+
+        PriorityQueue<Livre> queue = new PriorityQueue<>(comparator);
+        queue.addAll(livres);
+        return queue;  // retourne la liste de resultat.
     }
 
     @Override
     public PriorityQueue<Video> rechercherVideo(List<Video> videos) {
-        return null;
-    }
+        // comparator
+        Comparator<Video> comparator = Comparator.comparing(Video::getTitre);
 
-    // a faire
+        PriorityQueue<Video> queue = new PriorityQueue<>(comparator);
+        queue.addAll(videos);
+        return queue;  // retourne la liste de resultat.
+    }
 
 
 }

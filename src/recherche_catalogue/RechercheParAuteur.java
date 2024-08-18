@@ -4,6 +4,7 @@ import media.Livre;
 import media.Media;
 import media.Video;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -11,16 +12,31 @@ public class RechercheParAuteur implements RechercheStrategie{
 
     @Override
     public PriorityQueue<Media> rechercherMedia(List<Media> medias) {
-        return null;
+        // comparator
+        Comparator<Media> comparator = Comparator.comparing(Media::getAuteur);
+
+        PriorityQueue<Media> queue = new PriorityQueue<>(comparator);
+        queue.addAll(medias);
+        return queue;  // retourne la liste de resultat.
     }
 
     @Override
     public PriorityQueue<Livre> rechercherLivre(List<Livre> livres) {
-        return null;
+        // comparator
+        Comparator<Livre> comparator = Comparator.comparing(Livre::getAuteur);
+
+        PriorityQueue<Livre> queue = new PriorityQueue<>(comparator);
+        queue.addAll(livres);
+        return queue;  // retourne la liste de resultat.
     }
 
     @Override
     public PriorityQueue<Video> rechercherVideo(List<Video> videos) {
-        return null;
+        // comparator
+        Comparator<Video> comparator = Comparator.comparing(Video::getAuteur);
+
+        PriorityQueue<Video> queue = new PriorityQueue<>(comparator);
+        queue.addAll(videos);
+        return queue;  // retourne la liste de resultat.
     }
 }
