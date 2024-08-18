@@ -11,7 +11,5 @@ public interface SourceDonneeStrategie{
 	
 	List<String[]> loadMedia();
     List<String[]> loadAdherents();
-	
 
-	
 }

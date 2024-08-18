@@ -60,6 +60,16 @@ public class Main {
             System.out.println();
         }
 
+        System.out.println("======================================");
+        // test pour récuperer données medias
+
+        List<String[]> listeMedia = sourceBdd.loadMedia();
+        for (String[] medias : listeMedia) {
+            for (String media : medias) {
+                System.out.println(media + " ");
+            }
+            System.out.println();
+        }
 
 
 
