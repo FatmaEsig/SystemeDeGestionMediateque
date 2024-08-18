@@ -1,5 +1,6 @@
 import SourceDonnee.SourceBdd;
 import SourceDonnee.SourceDonneeStrategie;
+import SourceDonnee.SourceFichier;
 import dao.BddSQL;
 
 import java.util.List;
@@ -51,6 +52,8 @@ public class Main {
 
         */
         // test pour récuperer donnée adherents
+
+        /*
         SourceDonneeStrategie sourceBdd = new SourceBdd();
         List<String[]> listeAdherent = sourceBdd.loadAdherents();
         for (String[] adherent : listeAdherent) {
@@ -71,6 +74,49 @@ public class Main {
             System.out.println();
         }
 
+         */
+        System.out.println("======================================");
+        //test depuis source fichier media
+
+        SourceDonneeStrategie sourceFichier = new SourceFichier();
+        List<String[]> listeMedia = sourceFichier.loadMedia();
+        List<String[]> listeLivres = ((SourceFichier) sourceFichier).getListeLivres();
+        List<String[]> listeVideos = ((SourceFichier) sourceFichier).getListeVideos();
+
+        if (listeMedia != null){
+            System.out.println("Liste complete des médias :");
+            for (String[] medias : listeMedia) {
+                for (String media : medias) {
+                    System.out.println(media + " ");
+                }
+                System.out.println();
+            }
+        }
+
+        /*
+        // affichage de la liste des livres
+        if (listeLivres != null){
+            System.out.println("Liste des livres :");
+            for (String[] livre : listeLivres) {
+                for (String champ : livre) {
+                    System.out.println(champ + " ");
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+        // affichage des videos
+        if(listeVideos != null){
+            System.out.println("Liste des vidéos : ");
+            for (String[] video : listeVideos) {
+                for (String champ : video) {
+                    System.out.println(champ + " ");
+                }
+            }
+            System.out.println();
+        }
+*/
 
 
 	// Fabrique du Media à appeler
