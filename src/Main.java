@@ -3,6 +3,7 @@ import SourceDonnee.SourceDonneeStrategie;
 import SourceDonnee.SourceFichier;
 import dao.BddSQL;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -51,7 +52,7 @@ public class Main {
 
 
         */
-        // test pour récuperer donnée adherents
+        // test pour récuperer donnée adherents avec BDD
 
         /*
         SourceDonneeStrategie sourceBdd = new SourceBdd();
@@ -132,8 +133,48 @@ public class Main {
             }
         }
 
+        System.out.println("");
+        System.out.println("===========================================");
+        System.out.println("");
+    // -----------------------------------------------------------------------
+	    // Fabrique du Media à instancier
+		// Strategie à utiliser dans Fabrique
+        MediaFabrique mediaFabrique = new MediaFabrique(); // doit avoir 2 types d'objets
 
-	// Fabrique du Media à appeler
-		// Strategie à utiliser dans Fabrique , je dois voir comment le faire
+        //essaie
+        // Listes pour stocker les objets livre et video
+        List<Livre> livres = new ArrayList<>();
+        List<Video> videos = new ArrayList<>();
+
+        // iteration
+        for (String[] donneesLivre : listeLivres) {
+            Livre livre = mediaFabrique.creerLivre(donneesLivre);
+            if (livre != null){     // si donnee n'est pas vide
+                livres.add(livre);
+            }
+        }
+
+        // iteration
+        for (String[] donnesVideo : listeVideos) {
+            Video video = mediaFabrique.creerVideo(donnesVideo);
+            if (video != null){
+                videos.add(video);
+            }
+        }
+
+        // les titres livres avec l'auteur
+        System.out.println("Liste des Livres :");
+        for (Livre livre : livres) {
+            System.out.println(livre.getTitre() + " par " + livre.getAuteur());
+        }
+
+        System.out.println("-----------------------------------");
+
+        // les titres vidéos et leur auteur
+        System.out.println("Liste des Vidéos :");
+        for (Video video : videos) {
+            System.out.println(video.getTitre() + " par " + video.getAuteur());
+        }
+
     }
 }

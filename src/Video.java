@@ -8,9 +8,9 @@ import java.time.LocalDate;
 
 class Video extends Media{
 	
-	double duree;
-	int format;
-	int resolution;
+	String duree;
+	String format;
+	String resolution;
 	String url;
 	int nombreDeVues;
 	String description;
@@ -19,7 +19,7 @@ class Video extends Media{
 	
 	// constructeur avec héritage des attribut parent
 
-	public Video(int id, String titre, String auteur, LocalDate dateDePublication, Double prix, String type, double duree, int format, int resolution, String url, int nombreDeVues, String description) {
+	public Video(int id, String titre, String auteur, int dateDePublication, Double prix, String type, String duree, String format, String resolution, String url, int nombreDeVues, String description) {
 		super(id, titre, auteur, dateDePublication, prix, type);
 		this.duree = duree;
 		this.format = format;
@@ -34,27 +34,27 @@ class Video extends Media{
 	
 	// getters et setters
 
-	public double getDuree() {
+	public String getDuree() {
 		return duree;
 	}
 
-	public void setDuree(double duree) {
+	public void setDuree(String duree) {
 		this.duree = duree;
 	}
 
-	public int getFormat() {
+	public String getFormat() {
 		return format;
 	}
 
-	public void setFormat(int format) {
+	public void setFormat(String format) {
 		this.format = format;
 	}
 
-	public int getResolution() {
+	public String getResolution() {
 		return resolution;
 	}
 
-	public void setResolution(int resolution) {
+	public void setResolution(String resolution) {
 		this.resolution = resolution;
 	}
 

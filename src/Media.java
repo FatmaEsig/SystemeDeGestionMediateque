@@ -10,13 +10,13 @@ class Media{
 	int id;
 	String titre;
 	String auteur;
-	LocalDate dateDePublication;
+	int dateDePublication;
 	Double prix;
 	String type;  // pour differencier si c'est une video ou un livre
 	
 	//Constructeur
 
-	public Media(int id, String titre, String auteur, LocalDate dateDePublication, Double prix, String type) {
+	public Media(int id, String titre, String auteur, int dateDePublication, Double prix, String type) {
 		this.id = id;
 		this.titre = titre;
 		this.auteur = auteur;
@@ -57,11 +57,11 @@ class Media{
 		this.auteur = auteur;
 	}
 
-	public LocalDate getDateDePublication() {
+	public int getDateDePublication() {
 		return dateDePublication;
 	}
 
-	public void setDateDePublication(LocalDate dateDePublication) {
+	public void setDateDePublication(int dateDePublication) {
 		this.dateDePublication = dateDePublication;
 	}
 

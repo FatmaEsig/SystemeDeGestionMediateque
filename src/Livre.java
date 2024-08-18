@@ -8,14 +8,14 @@ import java.time.LocalDate;
 
 class Livre extends Media{
 	
-	int ISBN;
+	String ISBN;
 	String genre;
 	String resume;
 	
 	
 	// Constructeur (avec attributs Parent)
 
-	public Livre(int id, String titre, String auteur, LocalDate dateDePublication, Double prix, String type, int ISBN, String genre, String resume) {
+	public Livre(int id, String titre, String auteur, int dateDePublication, Double prix, String type, String ISBN, String genre, String resume) {
 		super(id, titre, auteur, dateDePublication, prix, type);
 		this.ISBN = ISBN;
 		this.genre = genre;
@@ -30,11 +30,11 @@ class Livre extends Media{
 	
 	// Getter et Setter
 
-	public int getISBN() {
+	public String getISBN() {
 		return ISBN;
 	}
 
-	public void setISBN(int ISBN) {
+	public void setISBN(String ISBN) {
 		this.ISBN = ISBN;
 	}
 
