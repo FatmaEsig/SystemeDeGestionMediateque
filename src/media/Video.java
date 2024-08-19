@@ -4,7 +4,7 @@ Systeme de gestion de Mediateque
 2024 - Rattrapage
 */
 
-public class Video extends Media{
+public class Video extends Media implements Comparable<Video>{
 	
 	String duree;
 	String format;
@@ -98,5 +98,19 @@ public class Video extends Media{
 				", dateDePublication=" + dateDePublication +
 				", prix=" + prix +
 				'}';
+	}
+
+	@Override
+	public int compareTo(Video autreVideo) {
+		//return this.getTitre().compareTo(autreVideo.getTitre());
+		int titreComparaison = this.getTitre().compareToIgnoreCase(autreVideo.getTitre());
+		if (titreComparaison != 0) {
+			return titreComparaison;
+		}
+		int dateComparaison = Integer.compare(this.getDateDePublication(), autreVideo.getDateDePublication());
+		if (dateComparaison != 0) {
+			return dateComparaison;
+		}
+		return this.getAuteur().compareToIgnoreCase(autreVideo.getAuteur());
 	}
 }

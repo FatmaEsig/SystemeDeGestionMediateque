@@ -10,10 +10,10 @@ import java.util.PriorityQueue;
 
 public interface RechercheStrategie {
 
-    PriorityQueue<Media> rechercherMedia (List<Media> medias); // pour tout les medias
+    //PriorityQueue<Media> rechercherMedia (List<Media> medias); // pour tout les medias
 
-    PriorityQueue<Livre> rechercherLivre (List<Livre> livres); // pour tous les livres
+    PriorityQueue<Livre> rechercherLivre (List<Livre> livres, String critere); // pour tous les livres
 
-    PriorityQueue<Video> rechercherVideo (List<Video> videos); // pour tout les videos
+    PriorityQueue<Video> rechercherVideo (List<Video> videos, String critere); // pour tout les videos
 
 }

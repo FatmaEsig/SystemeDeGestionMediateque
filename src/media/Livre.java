@@ -4,12 +4,11 @@ Systeme de gestion de Mediateque
 2024 - Rattrapage
 */
 
-public class Livre extends Media{
+public class Livre extends Media implements Comparable<Livre>{
 	
 	String ISBN;
 	String genre;
 	String resume;
-	
 	
 	// Constructeur (avec attributs Parent)
 
@@ -20,12 +19,8 @@ public class Livre extends Media{
 		this.resume = resume;
 	}
 
-
 	//Methodes
-	
-	
-	
-	
+
 	// Getter et Setter
 
 	public String getISBN() {
@@ -69,4 +64,18 @@ public class Livre extends Media{
 				", prix=" + prix +
 				'}';
 	}
+
+	@Override
+	public int compareTo(Livre autreLivre) {
+		int titreComparaison = this.getTitre().compareToIgnoreCase(autreLivre.getTitre());
+		if (titreComparaison != 0) {
+			return titreComparaison;
+		}
+		int dateComparaison = Integer.compare(this.getDateDePublication(), autreLivre.getDateDePublication());
+		if (dateComparaison != 0) {
+			return dateComparaison;
+		}
+		return this.getAuteur().compareToIgnoreCase(autreLivre.getAuteur());
+	}
+
 }

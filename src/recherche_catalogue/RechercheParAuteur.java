@@ -10,6 +10,7 @@ import java.util.PriorityQueue;
 
 public class RechercheParAuteur implements RechercheStrategie{
 
+    /*
     @Override
     public PriorityQueue<Media> rechercherMedia(List<Media> medias) {
         // comparator
@@ -18,25 +19,35 @@ public class RechercheParAuteur implements RechercheStrategie{
         PriorityQueue<Media> queue = new PriorityQueue<>(comparator);
         queue.addAll(medias);
         return queue;  // retourne la liste de resultat.
-    }
+    }*/
 
     @Override
-    public PriorityQueue<Livre> rechercherLivre(List<Livre> livres) {
+    public PriorityQueue<Livre> rechercherLivre(List<Livre> livres, String critere) {
         // comparator
-        Comparator<Livre> comparator = Comparator.comparing(Livre::getAuteur);
+        //Comparator<Livre> comparator = Comparator.comparing(Livre::getAuteur);
 
-        PriorityQueue<Livre> queue = new PriorityQueue<>(comparator);
-        queue.addAll(livres);
+        PriorityQueue<Livre> queue = new PriorityQueue<>();
+        for (Livre livre : livres) {
+            if(livre.getAuteur().equalsIgnoreCase(critere)){
+                queue.add(livre);
+            }
+        }
+        //queue.addAll(livres);
         return queue;  // retourne la liste de resultat.
     }
 
     @Override
-    public PriorityQueue<Video> rechercherVideo(List<Video> videos) {
+    public PriorityQueue<Video> rechercherVideo(List<Video> videos, String critere) {
         // comparator
-        Comparator<Video> comparator = Comparator.comparing(Video::getAuteur);
+        //Comparator<Video> comparator = Comparator.comparing(Video::getAuteur);
 
-        PriorityQueue<Video> queue = new PriorityQueue<>(comparator);
-        queue.addAll(videos);
+        PriorityQueue<Video> queue = new PriorityQueue<>();
+        for (Video video : videos) {
+            if(video.getAuteur().equalsIgnoreCase(critere)){
+                queue.add(video);
+            }
+        }
+        //queue.addAll(videos);
         return queue;  // retourne la liste de resultat.
     }
 }

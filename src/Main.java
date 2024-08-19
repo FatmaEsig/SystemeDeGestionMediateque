@@ -1,8 +1,11 @@
 import media.Livre;
 import media.Media;
 import media.Video;
+import recherche_catalogue.RechercheParAnnee;
+import recherche_catalogue.RechercheParAuteur;
 import recherche_catalogue.RechercheParTitre;
 import recherche_catalogue.RechercheStrategie;
+import recherche_multicritere_catalogue.RechercheMulticritere;
 import source_donnee.SourceDonneeStrategie;
 import source_donnee.SourceFichier;
 
@@ -191,14 +194,54 @@ public class Main {
         // ajout des medias (media (tout), livre, video) au catalogue
 
         for (Livre livre : livres) {
-            catalogue.ajouterLivre(livre);
+            catalogue.ajouterLivre(new Livre(livre.getId(),livre.getTitre(),livre.getAuteur(), livre.getDateDePublication(),
+                    livre.getPrix(), livre.getType(), livre.getISBN(), livre.getGenre(), livre.getResume()));
         }
 
         for (Video video : videos) {
-            catalogue.ajouterVideo(video);
+            catalogue.ajouterVideo(new Video(video.getId(), video.getTitre(), video.getAuteur(), video.getDateDePublication(),
+                    video.getPrix(), video.getType(), video.getDuree(), video.getFormat(), video.getResolution(), video.getUrl(),
+                    video.getNombreDeVues(), video.getDescription()));
         }
 
         // application du trie
+
+        // Recherche par titre
+        catalogue.setStrategie(new RechercheParTitre());
+        PriorityQueue<Livre> resultatTitre = catalogue.rechercheLivre("1984");
+        afficherResultatsLivre(resultatTitre); // methode
+
+        // Recherche par annee de publication
+
+        catalogue.setStrategie(new RechercheParAnnee());
+        PriorityQueue<Livre> resultatAnnee = catalogue.rechercheLivre("1813");
+        afficherResultatsLivre(resultatAnnee);
+
+        // Recherche par auteur du livre
+        catalogue.setStrategie(new RechercheParAuteur());
+        PriorityQueue<Livre> resultatAuteur = catalogue.rechercheLivre("Harper Lee");
+        afficherResultatsLivre(resultatAuteur);
+
+        System.out.println();
+        System.out.println("---------------------");
+        System.out.println();
+
+        // ----------------------------------------------------
+        // Recherche Multicritère
+        // 1. Recherche par titre (1/3)
+        catalogue.setStrategieMulti(new RechercheMulticritere());
+        PriorityQueue<Livre> resultatTitreMulti = catalogue.rechercherMulti("1984");
+        afficherResultatsLivre(resultatTitreMulti);
+
+        // 2. Recherche par titre et date (2/3)
+        PriorityQueue<Livre> resultatTitreDate = catalogue.rechercheMulti("1984", 1949);
+        afficherResultatsLivre(resultatTitreDate);
+
+        // 3. Recherche par titre, date et auteur
+        PriorityQueue<Livre> resultatTitreDateAuteur = catalogue.rechercherMulti("1984", 1949, "George Orwell");
+        afficherResultatsLivre(resultatTitreDateAuteur);
+
+        /*
         RechercheStrategie rechercheTitre = new RechercheParTitre();
         PriorityQueue<Livre> livresTrieParTitre = catalogue.rechercheLivre(rechercheTitre);
 
@@ -208,7 +251,18 @@ public class Main {
             Livre livre = livresTrieParTitre.poll();  // recupere l'element avec la plus haute priorité
             System.out.println(livre.getTitre());
         }
-
+*/
 
     }
+    // methode de resultat de recherche pour les priorityqueues
+    private static void afficherResultatsLivre(PriorityQueue<Livre> resultats){
+        while(!resultats.isEmpty()){
+            Livre livre = resultats.poll();
+            System.out.println("ID: " + livre.getId() + ", Titre: " + livre.getTitre() + ". Auteur: " + livre.getAuteur() + ", Date: " + livre.getDateDePublication());
+        }
+    }
+
 }
+
+
+
