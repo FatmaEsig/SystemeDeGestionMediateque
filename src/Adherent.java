@@ -8,17 +8,17 @@ import java.time.LocalDate;
 import java.util.HashMap;
 
 class Adherent{
-	int id;
-	String prenom;
-	String nom;
-	String adresse;
-	int numTel;
-	LocalDate dateDeNaiss;
-	HashMap<String,Adherent> listeAdherents;
+	private int id;
+	private String prenom;
+	private String nom;
+	private String adresse;
+	private long numTel;
+	private LocalDate dateDeNaiss;
+	private static HashMap<Integer,Adherent> listeAdherents = new HashMap<>();
 	
 	// constructeur
-
-	public Adherent(String prenom, String nom, String adresse, int numTel, LocalDate dateDeNaiss) {
+	public Adherent(int id, String prenom, String nom, String adresse, long numTel, LocalDate dateDeNaiss) {
+		this.id = id;
 		this.prenom = prenom;
 		this.nom = nom;
 		this.adresse = adresse;
@@ -28,8 +28,25 @@ class Adherent{
 
 
 	// methodes
-	
-	
+
+	/*
+		Methode qui ajoute un adhérent à la HashMap
+	*/
+	public static void ajouterAdherent(Adherent adherent){
+		listeAdherents.put(adherent.id, adherent);
+	}
+
+	/*
+		Methode qui affiche les adhérents
+	 */
+	public static void afficherAdherents(){
+		for (Integer id : listeAdherents.keySet()) {
+			Adherent adherent = listeAdherents.get(id);
+			System.out.println("ID: " + id + ", Prenom: " + adherent.prenom + ", Nom: " + adherent.nom);
+		}
+	}
+
+
 	// getters et setters
 
 	public int getId() {
@@ -64,11 +81,11 @@ class Adherent{
 		this.adresse = adresse;
 	}
 
-	public int getNumTel() {
+	public long getNumTel() {
 		return numTel;
 	}
 
-	public void setNumTel(int numTel) {
+	public void setNumTel(long numTel) {
 		this.numTel = numTel;
 	}
 
@@ -80,11 +97,11 @@ class Adherent{
 		this.dateDeNaiss = dateDeNaiss;
 	}
 
-	public HashMap<String, Adherent> getListeAdherents() {
+	public HashMap<Integer, Adherent> getListeAdherents() {
 		return listeAdherents;
 	}
 
-	public void setListeAdherents(HashMap<String, Adherent> listeAdherents) {
+	public void setListeAdherents(HashMap<Integer, Adherent> listeAdherents) {
 		this.listeAdherents = listeAdherents;
 	}
 

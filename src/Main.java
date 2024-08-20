@@ -1,17 +1,15 @@
 import media.Livre;
-import media.Media;
 import media.Video;
 import recherche_catalogue.RechercheParAnnee;
 import recherche_catalogue.RechercheParAuteur;
 import recherche_catalogue.RechercheParTitre;
-import recherche_catalogue.RechercheStrategie;
 import recherche_multicritere_catalogue.RechercheMulticritere;
 import source_donnee.SourceDonneeStrategie;
 import source_donnee.SourceFichier;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,6 +17,8 @@ public class Main {
         System.out.println("======= Mediathèque ========");
         System.out.println(" ");
         System.out.println("----------------------------");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
 
         // Il faut interaction avec utilisateur, scanner ???
 
@@ -129,6 +129,8 @@ public class Main {
         System.out.println(" ========================  ");
         System.out.println();
 
+        /*
+        // lister les adherents directement
         List<String[]> listeAdherents = sourceFichier.loadAdherents();
         if(listeAdherents != null){
             System.out.println("Liste des Adhérents : ");
@@ -139,6 +141,7 @@ public class Main {
                 System.out.println();
             }
         }
+        */
 
         System.out.println("");
         System.out.println("===========================================");
@@ -252,7 +255,58 @@ public class Main {
             System.out.println(livre.getTitre());
         }
 */
+        System.out.println();
+        System.out.println("========================================");
+        System.out.println();
+        // -------------------------------------------------------------------
+        // Adhérents  - Ajout des objets dans la classe Adherent
+        System.out.println("La liste des Adhérents");
 
+        List<String[]> listeAdherents = sourceFichier.loadAdherents();
+        if(listeAdherents != null){
+            for (String[] donneeAdherent : listeAdherents) {
+              int id = Integer.parseInt(donneeAdherent[0]);
+              String prenom = donneeAdherent[1];
+              String nom = donneeAdherent[2];
+              String adresse = donneeAdherent[3];
+              long numTel = Long.parseLong(donneeAdherent[4]);
+              LocalDate dateDeNaiss = LocalDate.parse(donneeAdherent[5], formatter);
+
+              Adherent adherent = new Adherent(id, prenom, nom, adresse, numTel, dateDeNaiss);
+
+              Adherent.ajouterAdherent(adherent);
+            }
+        }
+        // Affichage des adhérents
+        Adherent.afficherAdherents();
+        //------
+        // Ajoute d'un nouveau adhérent
+
+        // Modification d'un adhérent
+
+        // suppression d'un adherent
+
+
+        System.out.println();
+        System.out.println("=============================");
+        System.out.println();
+        //------------------------------------------------
+        // Empunter un media.
+
+        // pour emprunter un media, il faut verifier si la personne est adhérent ou pas en vérifiant le hashmap du Adherent.
+        // sinon on affiche un message
+
+        // si le media n'est pas disponible, afficher message
+
+
+        System.out.println();
+        System.out.println("=========================");
+        System.out.println();
+        // ----------------------------------------------
+        // Reserver un media - liste des personnes qui sont en attentes et les medias reservés
+
+
+        System.out.println("fin");
     }
     // methode de resultat de recherche pour les priorityqueues
     private static void afficherResultatsLivre(PriorityQueue<Livre> resultats){
