@@ -33,8 +33,41 @@ class Adherent{
 		Methode qui ajoute un adhérent à la HashMap
 	*/
 	public static void ajouterAdherent(Adherent adherent){
-		listeAdherents.put(adherent.id, adherent);
+		if (listeAdherents.containsKey(adherent.id)){
+			System.out.println("Adhérent avec ID " + adherent.id + " existe déjà.");
+		}
+		else {
+			listeAdherents.put(adherent.id, adherent);
+			System.out.println("Adhérent ajouté avec succès.");
+		}
 	}
+
+	// Méthode pour modifier un adhérent
+	public static void modifierAdherent(int id, String prenom, String nom, String adresse, long numTel, LocalDate dateDeNaiss) {
+		Adherent adherent = listeAdherents.get(id);
+		if (adherent != null) {
+			adherent.prenom = prenom;
+			adherent.nom = nom;
+			adherent.adresse = adresse;
+			adherent.numTel = numTel;
+			adherent.dateDeNaiss = dateDeNaiss;
+			System.out.println("Adhérent modifié avec succès.");
+		}
+		else {
+			System.out.println("Adhérent avec ID " + id + " n'existe pas.");
+		}
+	}
+	// Méthode pour supprimer un adhérent
+	public static void supprimerAdherent(int id) {
+		if (listeAdherents.remove(id) != null) {
+			// todo : si l'adherent a le media emprunté, il faut laisser supprimer l'adherent apres avoir retourné le media.
+			System.out.println("Adhérent supprimé avec succès.");
+		}
+		else {
+			System.out.println("Adhérent avec ID " + id + " n'existe pas.");
+		}
+	}
+
 
 	/*
 		Methode qui affiche les adhérents

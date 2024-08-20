@@ -281,11 +281,17 @@ public class Main {
         Adherent.afficherAdherents();
         //------
         // Ajoute d'un nouveau adhérent
+        //Adherent nouvelAdherent = new Adherent(26, "Nouveau", "Adherent", "Nouvelle Adresse", 1234567890, LocalDate.parse("01/01/2000", formatter));
+        //Adherent.ajouterAdherent(nouvelAdherent);
 
         // Modification d'un adhérent
+        //Adherent.modifierAdherent(6, "Modifié", "Adherent", "Adresse Modifiée", 9876543210L, LocalDate.parse("02/02/2000", formatter));
 
         // suppression d'un adherent
+        //Adherent.supprimerAdherent(6);
 
+        // Affichage des adhérents après modifications
+        //Adherent.afficherAdherents();
 
         System.out.println();
         System.out.println("=============================");
