@@ -1,4 +1,4 @@
-/*
+package media;/*
 Auteur: Fatma Aydin
 Systeme de gestion de Mediateque
 2024 - Rattrapage
@@ -15,11 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
-class Catalogue{
+public class Catalogue{
 
-	ArrayList<Media> listeMedia;		// pas utile
-	private List<Livre> listeLivre;
-	private List<Video> listeVideo;
+	//private List<Media> listeMedia;		// Liste pour tout media
+	private static List<Livre> listeLivre;
+	private static List<Video> listeVideo;
 
 	private RechercheStrategie strategie; // trie unique
 
@@ -27,20 +27,18 @@ class Catalogue{
 
 	//PriorityQueue<Media> trierMedia;
 	//HashMap<String,media.Media> media;  // soit ID, soit titre
-	// arbre pour filtrer le media? 
-	
 	
 	// constructeur
 	public Catalogue() {
-		this.listeMedia = new ArrayList<>(); // pas utile
+		//this.listeMedia = new ArrayList<>();
 		this.listeLivre = new ArrayList<>();
 		this.listeVideo = new ArrayList<>();
 	}
 
 	// methodes
 
-	/*
-	public void ajouterMedia(Media media){
+
+	/*public void ajouterMedia(Media media){
 		listeMedia.add(media);
 	}*/
 	public void ajouterLivre(Livre livre){
@@ -52,9 +50,54 @@ class Catalogue{
 	}
 
 
+	// ------------ partie ok
+
+	// methode pour afficher la disponibilité des medias
+	public static void afficherLivresDisponibles(){     // catalogue à passer dans le main
+		for (Livre livre : listeLivre) {
+			if (livre.isDisponible()){
+				System.out.println("Livre disponible : " + livre.getTitre());
+			}
+		}
+	}
+
+	// methode pour afficher la disponibilité des medias
+	public static void afficherVideosDisponibles(){
+		for (Video video : listeVideo) {
+			if (video.isDisponible()){
+				System.out.println("Video disponible : " + video.getTitre());
+			}
+		}
+	}
+
+	// Methode pour chercher l'objet du livre par le titre de livre passé à l'argument
+	public static Livre rechercherLivreParTitre(String titre) {
+		for (Livre livre : listeLivre) {
+			if (livre.getTitre().equalsIgnoreCase(titre)) {
+				return livre;
+			}
+		}
+		return null;
+	}
+
 
 	// getters et setters
 
+	/*public List<Media> getListeMedia() {
+		return listeMedia;
+	}*/
+
+	/*public void setListeMedia(List<Media> listeMedia) {
+		this.listeMedia = listeMedia;
+	}*/
+
+	public RechercheStrategie getStrategie() {
+		return strategie;
+	}
+
+	public RechercheMulticritere getStrategieMulti() {
+		return strategieMulti;
+	}
 
 	public void setStrategie(RechercheStrategie strategie) {
 		this.strategie = strategie;
@@ -96,12 +139,16 @@ class Catalogue{
 
 	// pour videos
 	public PriorityQueue<Video> rechercheVideo(String critere){
+		if (strategie == null){
+			throw new IllegalStateException("Aucune trie est definie.");
+		}
 		return strategie.rechercherVideo(listeVideo, critere);
 	}
 
 	// ------------------------------------------------
 	// Recherche multicritere (3 methodes avec arguments variés)
 
+	// pour livre seulement
 	public PriorityQueue<Livre> rechercherMulti(String titre){
 		if (strategieMulti == null){
 			throw new IllegalStateException("Aucun trie choisi.");
@@ -122,4 +169,30 @@ class Catalogue{
 		}
 		return strategieMulti.rechercher(listeLivre, titre, annee, auteur);
 	}
+
+	// ------------------------
+	// pour Media
+
+	/*
+	public PriorityQueue<Media> rechercherMultiMedia(String titre) {
+		if (strategieMulti == null) {
+			throw new IllegalStateException("Aucun trie choisi.");
+		}
+		return strategieMulti.rechercherMedia(listeMedia, titre);
+	}
+
+	public PriorityQueue<Media> rechercherMultiMedia(String titre, int annee) {
+		if (strategieMulti == null) {
+			throw new IllegalStateException("Aucun trie choisi.");
+		}
+		return strategieMulti.rechercherMedia(listeMedia, titre, annee);
+	}
+
+	public PriorityQueue<Media> rechercherMultiMedia(String titre, int annee, String auteur) {
+		if (strategieMulti == null) {
+			throw new IllegalStateException("Aucun trie choisi.");
+		}
+		return strategieMulti.rechercherMedia(listeMedia, titre, annee, auteur);
+	}
+	*/
 }

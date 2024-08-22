@@ -1,4 +1,9 @@
+import emprunts_reservations.Adherent;
+import emprunts_reservations.Emprunt;
+import emprunts_reservations.Reservation;
+import media.Catalogue;
 import media.Livre;
+import media.MediaFabrique;
 import media.Video;
 import recherche_catalogue.RechercheParAnnee;
 import recherche_catalogue.RechercheParAuteur;
@@ -190,7 +195,7 @@ public class Main {
         System.out.println("===========================================");
         System.out.println("");
         // ----------------------------------------------
-        // Catalogue
+        // media.Catalogue
 
         Catalogue catalogue = new Catalogue();
 
@@ -259,7 +264,7 @@ public class Main {
         System.out.println("========================================");
         System.out.println();
         // -------------------------------------------------------------------
-        // Adhérents  - Ajout des objets dans la classe Adherent
+        // Adhérents  - Ajout des objets dans la classe emprunts_reservations.Adherent
         System.out.println("La liste des Adhérents");
 
         List<String[]> listeAdherents = sourceFichier.loadAdherents();
@@ -281,17 +286,17 @@ public class Main {
         Adherent.afficherAdherents();
         //------
         // Ajoute d'un nouveau adhérent
-        //Adherent nouvelAdherent = new Adherent(26, "Nouveau", "Adherent", "Nouvelle Adresse", 1234567890, LocalDate.parse("01/01/2000", formatter));
-        //Adherent.ajouterAdherent(nouvelAdherent);
+        //emprunts_reservations.Adherent nouvelAdherent = new emprunts_reservations.Adherent(26, "Nouveau", "emprunts_reservations.Adherent", "Nouvelle Adresse", 1234567890, LocalDate.parse("01/01/2000", formatter));
+        //emprunts_reservations.Adherent.ajouterAdherent(nouvelAdherent);
 
         // Modification d'un adhérent
-        //Adherent.modifierAdherent(6, "Modifié", "Adherent", "Adresse Modifiée", 9876543210L, LocalDate.parse("02/02/2000", formatter));
+        //emprunts_reservations.Adherent.modifierAdherent(6, "Modifié", "emprunts_reservations.Adherent", "Adresse Modifiée", 9876543210L, LocalDate.parse("02/02/2000", formatter));
 
         // suppression d'un adherent
-        //Adherent.supprimerAdherent(6);
+        //emprunts_reservations.Adherent.supprimerAdherent(6);
 
         // Affichage des adhérents après modifications
-        //Adherent.afficherAdherents();
+        //emprunts_reservations.Adherent.afficherAdherents();
 
         System.out.println();
         System.out.println("=============================");
@@ -299,10 +304,192 @@ public class Main {
         //------------------------------------------------
         // Empunter un media.
 
-        // pour emprunter un media, il faut verifier si la personne est adhérent ou pas en vérifiant le hashmap du Adherent.
-        // sinon on affiche un message
+        // pour emprunter un media, il faut verifier si la personne est adhérent ou pas en vérifiant le hashmap du emprunts_reservations.Adherent.
 
-        // si le media n'est pas disponible, afficher message
+        // SENARIOS
+
+        // Senario 1
+        // La personne consulte les livres et videos disponibles
+
+        System.out.println("\n--- Livres disponibles ---");
+        Catalogue.afficherLivresDisponibles();
+        System.out.println("\n--- Vidéos disponibles ---");
+        Catalogue.afficherVideosDisponibles();
+
+
+        System.out.println();
+        System.out.println("=========================");
+        System.out.println();
+
+        // Senario 2
+
+        // Simulation d'un emprunt
+        // 1. Recherche du livre par titre
+        Livre livreChoisi = Catalogue.rechercherLivreParTitre("1984");
+        if (livreChoisi == null) {
+            System.out.println("Livre non trouvé");
+            return;
+        }
+
+        // 2. Recherche de l'adhérent par nom
+        Adherent adherentChoisi = Adherent.rechercherAdherentParNom("Toy");
+        if (adherentChoisi == null) {
+            System.out.println("Adhérent non trouvé");
+            return;
+        }
+
+        // 3. Création de l'emprunt
+        //Emprunt nouvelEmprunt = new Emprunt(1, livreChoisi, adherentChoisi, LocalDate.now(), LocalDate.now().plusWeeks(2));
+        //nouvelEmprunt.emprunterMedia(livreChoisi);
+        Emprunt.emprunterMedia(livreChoisi, adherentChoisi);
+
+        // 4. Vérification l'état des livres disponibles après avoir emprunté
+        System.out.println("\n--- Livres disponibles après emprunt ---");
+        Catalogue.afficherLivresDisponibles();
+
+        System.out.println();
+        System.out.println("=========================");
+        System.out.println();
+
+
+        System.out.println();
+        System.out.println("=========================");
+        System.out.println();
+
+        // Sénario 4
+        // lister les emprunts en cours
+        System.out.println("\n--- Emprunts en cours ---");
+        Emprunt.listerEmpruntsEnCours();
+
+        System.out.println();
+        System.out.println("=========================");
+        System.out.println();
+
+        // Sénario 5
+        // Un autre adhérent essaie d'emprunter le meme livre
+
+        Livre livreChoisi1 = Catalogue.rechercherLivreParTitre("1984");
+        if (livreChoisi == null) {
+            System.out.println("Livre non trouvé");
+            return;
+        }
+
+        // 2. Recherche de l'adhérent par nom
+        Adherent adherentChoisi1 = Adherent.rechercherAdherentParNom("Egle");
+        if (adherentChoisi == null) {
+            System.out.println("Adhérent non trouvé");
+            return;
+        }
+        if (livreChoisi1 != null && adherentChoisi1 != null) {
+            Emprunt.emprunterMedia(livreChoisi1, adherentChoisi1);
+        }
+
+        System.out.println();
+        System.out.println("=========================");
+        System.out.println();
+
+        // Sénario 6
+        // Ajout d'un reservation manuelement, et lister les réservations
+
+        Livre livreChoisi2 = Catalogue.rechercherLivreParTitre("The Odyssey");
+        if (livreChoisi == null) {
+            System.out.println("Livre non trouvé");
+            return;
+        }
+
+        // 2. Recherche de l'adhérent par nom
+        Adherent adherentChoisi2 = Adherent.rechercherAdherentParNom("Yare");
+        if (adherentChoisi == null) {
+            System.out.println("Adhérent non trouvé");
+            return;
+        }
+
+
+        // creation de la reservation
+        if (livreChoisi2 != null && adherentChoisi2 != null) {
+            Reservation reservation = new Reservation(2, livreChoisi2, adherentChoisi2);
+            Reservation.ajouterReservation(reservation);
+        }
+
+        System.out.println();
+        System.out.println("Réservations : ");
+        for (Reservation i : Reservation.getListReservation()) {
+            System.out.println(i.getAdherent().getPrenom() + " " + i.getAdherent().getNom() + " a réservé " +
+                    "le média : " + i.getMedia().getTitre());
+        }
+
+        System.out.println();
+        System.out.println("=========================");
+        System.out.println();
+
+        // Senario 7
+        // Affichage des emprunts dont la date de retour est dépassé (en modifiant les dates de retour)
+
+        //nouvelEmprunt.setDateRetour(LocalDate.now().minusDays(1)); // 1 jour de retard
+        //nouvelEmprunt.ajouterEmpruntEnRetard(nouvelEmprunt);  // on ajoute l'emprunt modifié à la liste des emprunts dont la date de retour est passée.
+
+        Emprunt dernierEmprunt = Emprunt.rechercherEmpruntParMedia(livreChoisi);
+        if (dernierEmprunt != null) {
+            dernierEmprunt.setDateRetour(LocalDate.now().minusDays(1)); // 1 jour de retard
+            Emprunt.ajouterEmpruntEnRetard(dernierEmprunt); // Ajouter à la liste des emprunts en retard
+        }
+
+
+        System.out.println("\n--- Emprunts en retard ---");
+        Emprunt.listerEmpruntsEnRetards();
+
+
+        System.out.println();
+        System.out.println("=========================");
+        System.out.println();
+
+        // Senario 8
+        // Retour d'un média
+        // avant de retourner
+        System.out.println("La liste des emprunts dont la date de retour est dépassée avant le retour du media:");
+        Emprunt.listerEmpruntsEnRetards();
+
+        if (dernierEmprunt != null) {
+            Emprunt.retournerMedia(livreChoisi); // Toy retourne "1984"
+        }
+
+        System.out.println();
+
+
+        // Affichage des emprunts en cours après le retour
+        System.out.println("\n--- Emprunts en cours après retour ---");
+        Emprunt.listerEmpruntsEnCours();
+
+        System.out.println();
+        System.out.println("La liste des emprunts dont la date de retour est dépassée apres le retour du media:");
+        Emprunt.listerEmpruntsEnRetards();
+
+        System.out.println();
+        System.out.println("=========================");
+        System.out.println();
+
+        // Senario 9
+
+
+
+        System.out.println();
+        System.out.println("=========================");
+        System.out.println();
+
+        // Senario 10
+
+
+        System.out.println();
+        System.out.println("=========================");
+        System.out.println();
+
+        // Senario x
+        // La personne consulte les livres et videos disponibles après que les gens ont emprunté des medias.
+
+        System.out.println("\n--- Livres disponibles ---");
+        Catalogue.afficherLivresDisponibles();
+        System.out.println("\n--- Vidéos disponibles ---");
+        Catalogue.afficherVideosDisponibles();
 
 
         System.out.println();

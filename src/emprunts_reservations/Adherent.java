@@ -1,4 +1,4 @@
-/*
+package emprunts_reservations;/*
 Auteur : Fatma Aydin
 Systeme de gestion de Mediateque
 2024 - Rattrapage
@@ -7,7 +7,7 @@ Systeme de gestion de Mediateque
 import java.time.LocalDate;
 import java.util.HashMap;
 
-class Adherent{
+public class Adherent{
 	private int id;
 	private String prenom;
 	private String nom;
@@ -68,6 +68,11 @@ class Adherent{
 		}
 	}
 
+	// Methode qui verifie si la personne est emprunts_reservations.Adherent ou pas
+	public boolean estAdherent(){
+		return listeAdherents.containsKey(this.id);  // si son id n'existe pas dans notre systeme alors il n'est pas adherent.
+	}
+
 
 	/*
 		Methode qui affiche les adhérents
@@ -79,6 +84,15 @@ class Adherent{
 		}
 	}
 
+	// Methode pour retourner l'objet adherent en passant le nom adherent au parametre
+	public static Adherent rechercherAdherentParNom(String nom) {
+		for (Adherent adherent : listeAdherents.values()) {
+			if (adherent.getNom().equalsIgnoreCase(nom)) {
+				return adherent;
+			}
+		}
+		return null;
+	}
 
 	// getters et setters
 
@@ -142,7 +156,7 @@ class Adherent{
 	// toString
 	@Override
 	public String toString() {
-		return "Adherent{" +
+		return "emprunts_reservations.Adherent{" +
 				"id=" + id +
 				", prenom='" + prenom + '\'' +
 				", nom='" + nom + '\'' +

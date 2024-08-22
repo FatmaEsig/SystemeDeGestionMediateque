@@ -7,13 +7,14 @@ Systeme de gestion de Mediateque
 import java.time.LocalDate;
 
 public class Media{
-	int id;
-	String titre;
-	String auteur;
-	int dateDePublication;
-	Double prix;
-	String type;  // pour differencier si c'est une video ou un livre
-	
+	private int id;
+	private String titre;
+	private String auteur;
+	private int dateDePublication;
+	private Double prix;
+	private String type;  // pour differencier si c'est une video ou un livre
+
+	private boolean disponible;
 	//Constructeur
 
 	public Media(int id, String titre, String auteur, int dateDePublication, Double prix, String type) {
@@ -23,13 +24,16 @@ public class Media{
 		this.dateDePublication = dateDePublication;
 		this.prix = prix;
 		this.type = type;
+		this.disponible = true;
 	}
 
 
 	//Methodes
-	
-	
-	
+
+	public boolean isDisponible(){
+		return disponible;
+	}
+
 	
 	// Getter et Setter
 
@@ -80,8 +84,12 @@ public class Media{
 	public void setType(String type) {
 		this.type = type;
 	}
-// ToString
 
+	public void setDisponible(boolean disponible) {
+		this.disponible = disponible;
+	}
+
+	// ToString
 
 	@Override
 	public String toString() {

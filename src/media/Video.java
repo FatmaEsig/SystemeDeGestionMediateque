@@ -92,11 +92,11 @@ public class Video extends Media implements Comparable<Video>{
 				", url='" + url + '\'' +
 				", nombreDeVues=" + nombreDeVues +
 				", description='" + description + '\'' +
-				", id=" + id +
-				", titre='" + titre + '\'' +
-				", auteur='" + auteur + '\'' +
-				", dateDePublication=" + dateDePublication +
-				", prix=" + prix +
+				", id=" + getId() +
+				", titre='" + getTitre() + '\'' +
+				", auteur='" + getAuteur() + '\'' +
+				", dateDePublication=" + getDateDePublication() +
+				", prix=" + getPrix() +
 				'}';
 	}
 

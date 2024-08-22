@@ -23,6 +23,7 @@ public class Livre extends Media implements Comparable<Livre>{
 
 	// Getter et Setter
 
+
 	public String getISBN() {
 		return ISBN;
 	}
@@ -53,15 +54,16 @@ public class Livre extends Media implements Comparable<Livre>{
 
 	@Override
 	public String toString() {
+
 		return "media.Livre{" +
 				"ISBN=" + ISBN +
 				", genre='" + genre + '\'' +
 				", resume='" + resume + '\'' +
-				", id=" + id +
-				", titre='" + titre + '\'' +
-				", auteur='" + auteur + '\'' +
-				", dateDePublication=" + dateDePublication +
-				", prix=" + prix +
+				", id=" + getId() +
+				", titre='" + getTitre() + '\'' +
+				", auteur='" + getAuteur() + '\'' +
+				", dateDePublication=" + getDateDePublication() +
+				", prix=" + getPrix() +
 				'}';
 	}
 

@@ -1,4 +1,4 @@
-/*
+package media;/*
 Auteur: Fatma Aydin
 Systeme de gestion de Mediateque
 2024 - Rattrapage
@@ -7,13 +7,13 @@ Systeme de gestion de Mediateque
 import media.Livre;
 import media.Video;
 
-class MediaFabrique{
+public class MediaFabrique{
 
 
 	// methodes
 
 	// pour créer l'objet media.Livre
-	static Livre creerLivre(String[] data){
+	public static Livre creerLivre(String[] data){
 		try {
 			// tout les attributs
 			int id = Integer.parseInt(data[0]);
@@ -35,7 +35,7 @@ class MediaFabrique{
 
 
 	// pour créer l'objet video
-	static Video creerVideo(String[] data){
+	public static Video creerVideo(String[] data){
 		try {
 			int id = Integer.parseInt(data[0]);
 			String titre = data[1];
